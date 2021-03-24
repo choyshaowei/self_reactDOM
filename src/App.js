@@ -44,9 +44,9 @@ const App = () => {
     console.log(courseGoals);
   };
 
-  const indexOfLastpost = currentPage * postPerPage;
-  const indeOfFirstPost = indexOfLastpost - postPerPage;
-  const currentPosts = posts.slice(indeOfFirstPost, indexOfLastpost);
+  const indexOfLastPost = currentPage * postPerPage;
+  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
@@ -65,6 +65,14 @@ const App = () => {
         crossorigin="anonymous"
       />
       <div className="container-fluid">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">Page {currentPage}</li>
+            <li class="breadcrumb-item">
+              {Math.ceil(posts.length / postPerPage)}
+            </li>
+          </ol>
+        </nav>
         <Posts posts={currentPosts} loading={loading}></Posts>
         <Pagination
           postsPerPage={postPerPage}
