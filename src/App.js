@@ -53,7 +53,7 @@ const App = () => {
     <div className="course-goals">
       <h2>
         <button type="button" class="btn btn-danger btn-lg m-5">
-          Course Goals
+          Simple React App
         </button>
       </h2>
       {/* <NewGoal onAddGoal={addNewGoalHandler}></NewGoal>
