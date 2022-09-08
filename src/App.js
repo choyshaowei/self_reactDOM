@@ -1,24 +1,24 @@
-import React, { useState, useEffect, useCallback } from "react";
-import ReactPaginate from "react-paginate";
+import React, { useState, useEffect } from "react";
+// import ReactPaginate from "react-paginate";
 
 import "./App.css";
 
-import GoalList from "./components/GoalList/GoalList";
-import NewGoal from "./components/NewGoal/NewGoal";
+// import GoalList from "./components/GoalList/GoalList";
+// import NewGoal from "./components/NewGoal/NewGoal";
 import Posts from "./components/Posts";
 import Pagination from "./components/Pagination";
 
 const App = () => {
-  const [courseGoals, setCourseGoals] = useState([
-    { id: "cg1", text: "Finished the Course" },
-    { id: "cg2", text: "All about course" },
-    { id: "cg3", text: "Help other students for QnA" },
-  ]);
+  // const [courseGoals, setCourseGoals] = useState([
+  //   { id: "cg1", text: "Finished the Course" },
+  //   { id: "cg2", text: "All about course" },
+  //   { id: "cg3", text: "Help other students for QnA" },
+  // ]);
 
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(10);
+  const [postPerPage] = useState(10);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -36,13 +36,13 @@ const App = () => {
     fetchPosts();
   }, []);
 
-  const addNewGoalHandler = (newGoal) => {
-    // setCourseGoals(courseGoals.concat(newGoal))
-    setCourseGoals((precCourseGoals) => {
-      return precCourseGoals.concat(newGoal);
-    });
-    console.log(courseGoals);
-  };
+  // const addNewGoalHandler = (newGoal) => {
+  //   // setCourseGoals(courseGoals.concat(newGoal))
+  //   setCourseGoals((precCourseGoals) => {
+  //     return precCourseGoals.concat(newGoal);
+  //   });
+  //   console.log(courseGoals);
+  // };
 
   const indexOfLastPost = currentPage * postPerPage;
   const indexOfFirstPost = indexOfLastPost - postPerPage;
